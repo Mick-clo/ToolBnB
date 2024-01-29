@@ -22,6 +22,7 @@ default: &default
 development:
   <<: *default
   database: tool_bn_b_development
+  host: localhost
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
