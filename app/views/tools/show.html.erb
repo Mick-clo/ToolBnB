@@ -2,6 +2,6 @@
 <p><strong>Price:</strong> <%= @tool.price %></p>
 <p><strong>Description:</strong> <%= @tool.description %></p>
 
-<%= link_to 'Delete Tool', destroy_tool_path(@tool), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete Tool', tools_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_tool_path(@tool) %>
 <%= link_to 'Back', tools_path %>
