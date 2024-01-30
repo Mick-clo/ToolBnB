@@ -11,9 +11,6 @@
   </head>
 
   <body>
-  <%= render "layouts/navbar" %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <%= render "devise/shared/flashes" %>
   </body>
 </html>
