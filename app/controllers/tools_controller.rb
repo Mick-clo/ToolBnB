@@ -1,5 +1,10 @@
 class ToolsController < ApplicationController
 
+  before_action :set_tool, only: [:show]
+
+  def show
+  end
+
   def new
     @tool = Tool.new
   end
@@ -11,11 +16,17 @@ class ToolsController < ApplicationController
     else
       render :new
     end
+
   end
 
   private
 
+
+  def set_tool
+    @tool = Tool.find(params[:id])
+  end
   def tool_params
     params.require(:tool).permit(:title, :price, :description)
+
   end
 end
