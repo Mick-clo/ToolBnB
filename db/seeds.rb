@@ -8,3 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Create Tool
+
+User.create!(email: "mick@wagon.com", encrypted_password: "password", password: "password")
+
+Tool.create(title: 'first tool', price: 11, description: 'A very useful tool', user_id: 1)
+Tool.create(title: 'second tool', price: 11, description: 'A very useful tool', user_id: 1)
+Tool.create(title: 'third tool', price: 11, description: 'A very useful tool', user_id: 1)
+Tool.create(title: 'fourth tool', price: 11, description: 'A very useful tool', user_id: 1)
+Tool.create(title: 'fifth tool', price: 11, description: 'A very useful tool', user_id: 1)
+Tool.create(title: 'sixth tool', price: 11, description: 'A very useful tool', user_id: 1)
