@@ -1,0 +1,18 @@
+<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+
+
+  <div class="field">
+    <%= form.label :starting_date %>
+    <%= form.date_field :starting_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ending_date %>
+    <%= form.date_field :ending_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
