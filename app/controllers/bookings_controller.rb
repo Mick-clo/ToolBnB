@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
 
   def index
-    @bookings = current_user.bookings.order(start_time: :desc)
+    @bookings = current_user.bookings.order(starting_date: :desc)
   end
 
   def new
