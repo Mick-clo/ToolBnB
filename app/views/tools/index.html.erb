@@ -1,0 +1,11 @@
+
+<% @tools.each do |tool| %>
+  <div class="card-product">
+    <img src="https://empire-s3-production.bobvila.com/slides/2645/original/wrench-xmas.jpg?1591209339" />
+    <div class="card-product-infos">
+      <h2> <% tool.title %> </h2> <p> by <%= tool.user %>
+      <p> <span> <% tool.title %> </span></p>
+      <p><% tool.description %></p>
+    </div>
+  </div>
+<% end %>
