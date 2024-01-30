@@ -1,0 +1,27 @@
+<h1>Your Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Starting Date</th>
+      <th>Ending Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.tool.title %></td>
+        <td><%= booking.starting_date %></td>
+        <td><%= booking.ending_date %></td>
+        <td>
+          <%= link_to 'Show', booking %>
+          <%= link_to 'Edit', edit_booking_path(booking) %>
+          <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
