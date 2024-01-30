@@ -9,8 +9,6 @@
 #   end
 # Create Tool
 
-
-
 Tool.create(title: 'Drill', price: 14, description: 'Simple and quick 👌', user_id: 1)
 Tool.create(title: 'Saw', price: 25, description: 'Cuts everything!', user_id: 1)
 Tool.create(title: 'Ladder', price: 8, description: 'I know what it means to not have enough space for a ladder at home', user_id: 1)

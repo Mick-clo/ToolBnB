@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
+
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings.order(start_time: :desc)
   end
 
   def new
@@ -9,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(bookimg_params)
+    @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.user = current_user
     if booking.save
@@ -19,12 +20,13 @@ class BookingsController < ApplicationController
     end
   end
 
-  
+  private
+
   def set_tool
     @tool = Tool.find(params[:tool_id])
   end
 
-  def bookimg_params
+  def booking_params
     params.require(:booking).permit(:starting_date, :ending_date)
   end
 end
