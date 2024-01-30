@@ -16,7 +16,7 @@ class ToolsController < ApplicationController
     @tool = Tool.new(tool_params)
     @tool.user = current_user
     if @tool.save
-      redirect_to @tool, notice: 'Your tool was successfully added!' # tool_path(@tool)
+      redirect_to @tool # tool_path(@tool)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ToolsController < ApplicationController
   def update
     @tool = Tool.find(params[:id])
     if @tool.update(tool_params)
-      redirect_to @tool, notice: 'Tool was successfully updated!'
+      redirect_to @tool
     else
       render :edit
     end
