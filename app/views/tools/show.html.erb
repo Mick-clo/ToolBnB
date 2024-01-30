@@ -1,4 +1,4 @@
 <h1><%= @tool.title %></h1>
 <p><strong>Price:</strong> <%= @tool.price %></p>
 <p><strong>Description:</strong> <%= @tool.description %></p>
-
+<%= link_to 'Book this Tool', new_tool_booking_path(@tool) %>

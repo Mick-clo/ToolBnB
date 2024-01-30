@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookings/new'
   get 'tools/show'
   devise_for :users
   root to: "pages#home"
