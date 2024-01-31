@@ -14,8 +14,8 @@
     <div class="card-product-infos">
       <h2> <%= tool.title %> </h2> <p> by <%= tool.user.first_name %>
       <p> <span> <%= tool.price %> </span></p>
-      <br>
       <p> <%= tool.description %> </p>
+      <%= link_to "Book me!", new_tool_booking_path(tool) %>
     </div>
   </div>
 <% end %>
