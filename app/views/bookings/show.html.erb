@@ -1,0 +1,9 @@
+<h1>Booking Details</h1>
+
+<p><strong>Tool:</strong> <%= @booking.tool.title %></p>
+<p><strong>Booked by:</strong> <%= @booking.user.email %></p>
+<p><strong>Starting Date:</strong> <%= @booking.starting_date %></p>
+<p><strong>Ending Date:</strong> <%= @booking.ending_date %></p>
+<p><strong>Status:</strong> <%= @booking.status %></p>
+
+<%= link_to 'Back to Bookings', bookings_path %>

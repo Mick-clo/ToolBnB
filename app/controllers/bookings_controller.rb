@@ -1,12 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
-
+  before_action :set_booking, only: [:show, :destroy]
   def index
     @bookings = current_user.bookings.order(start_time: :desc)
   end
 
   def new
     @bookings = Booking.new
+  end
+
+  def show
   end
 
   def create
@@ -20,10 +23,27 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    if @booking.update(status: 'accepted')
+      redirect_to bookings_path, notice: 'Booking request accepted.'
+    else
+      redirect_to bookings_path, alert: 'Unable to accept booking request.'
+    end
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to bookings_url, notice: 'Booking was successfully deleted.'
+  end
+
   private
 
   def set_tool
     @tool = Tool.find(params[:tool_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

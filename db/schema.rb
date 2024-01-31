@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_120559) do
     t.datetime "updated_at", null: false
     t.datetime "starting_date", precision: nil
     t.datetime "ending_date", precision: nil
+    t.string "status", default: "pending"
     t.index ["tool_id"], name: "index_bookings_on_tool_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
