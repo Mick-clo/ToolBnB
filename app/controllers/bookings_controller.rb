@@ -1,8 +1,13 @@
 class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
   before_action :set_booking, only: [:show, :destroy]
+
   def index
     @bookings = current_user.bookings.order(starting_date: :desc)
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   def new
