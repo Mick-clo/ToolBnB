@@ -2,11 +2,11 @@ class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
   before_action :set_booking, only: [:show, :destroy]
   def index
-    @bookings = current_user.bookings.order(start_time: :desc)
+    @bookings = current_user.bookings.order(starting_date: :desc)
   end
 
   def new
-    @bookings = Booking.new
+    @booking = Booking.new
   end
 
   def show
@@ -16,10 +16,27 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.user = current_user
-    if booking.save
+    if @booking.save
       redirect_to tool_path(@tool), notice: 'Booking was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

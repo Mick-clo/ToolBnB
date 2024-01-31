@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-  get 'tools/show'
+
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "tools#index"
-  get 'users/:id', to: 'users#show'
+  get 'dashboard', to: 'pages#dashboard'
   resources :tools do
     resources :bookings, only: [:new, :create]
   end
