@@ -1,0 +1,10 @@
+<h1>Booking Details</h1>
+
+<p>Your booking ID:<%= @booking.id %></p>
+<p>User: <%= @booking.user_id.first_name %></p>
+<p>Tool ID: <%= @booking.tool_id %></p>
+<p>Starting Date: <%= @booking.starting_date %></p>
+<p>Ending Date: <%= @booking.ending_date %></p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %>
+<%= link_to 'Back', bookings_path %>

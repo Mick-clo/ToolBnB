@@ -1,8 +1,12 @@
 class BookingsController < ApplicationController
-  before_action :set_tool, only: [:new, :create]
+  before_action :set_tool, only: [:new, :show, :create]
 
   def index
     @bookings = current_user.bookings.order(start_time: :desc)
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -13,7 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.user = current_user
-    if booking.save
+    if @booking.save
       redirect_to tool_path(@tool), notice: 'Booking was successfully created.'
     else
       render :new
