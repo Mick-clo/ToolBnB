@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    
   end
 
   def create
@@ -24,10 +23,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    if @booking.update(status: 'accepted')
+      redirect_to bookings_path, notice: 'Booking request accepted.'
+    else
+      redirect_to bookings_path, alert: 'Unable to accept booking request.'
+    end
+  end
+
   def destroy
     @booking.destroy
     redirect_to bookings_url, notice: 'Booking was successfully deleted.'
-
   end
 
   private
@@ -35,9 +41,11 @@ class BookingsController < ApplicationController
   def set_tool
     @tool = Tool.find(params[:tool_id])
   end
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
   def booking_params
     params.require(:booking).permit(:starting_date, :ending_date)
   end
