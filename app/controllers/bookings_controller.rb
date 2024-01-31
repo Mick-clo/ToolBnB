@@ -6,17 +6,34 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @bookings = Booking.new
+    @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.user = current_user
-    if booking.save
+    if @booking.save
       redirect_to tool_path(@tool), notice: 'Booking was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
