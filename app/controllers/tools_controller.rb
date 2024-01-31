@@ -3,6 +3,14 @@ class ToolsController < ApplicationController
 
   def index
     @tools = Tool.all
+    @markers = @tools.geocoded.map do |tool|
+      {
+        lat: tool.latitude,
+        lng: tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: tool }),
+        marker_html: render_to_string(partial: "marker", locals: { tool: tool })
+      }
+    end
   end
 
   def show
@@ -48,6 +56,6 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.require(:tool).permit(:title, :price, :description)
+    params.require(:tool).permit(:title, :price, :description, :address)
   end
 end
