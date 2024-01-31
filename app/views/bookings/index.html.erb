@@ -19,6 +19,7 @@
         <td>
           <%= link_to 'Show', booking %>
           <%= link_to 'Edit', edit_booking_path(booking) %>
+          <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: { confirm: 'Are you sure?' } if booking.status == 'pending' %>
           <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
