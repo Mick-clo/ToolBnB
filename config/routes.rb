@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "tools#index"
   get 'dashboard', to: 'pages#dashboard'
+  get 'search', to: 'tools#search', as: :search
   resources :tools do
     resources :bookings, only: [:new, :create]
   end

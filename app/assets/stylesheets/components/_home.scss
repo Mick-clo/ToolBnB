@@ -1,0 +1,19 @@
+.card {
+  background-size: cover;
+  background-position: center;
+  color: rgb(9, 9, 9);
+  transition: all 0.3s ease-in-out;
+  margin: 30px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+#about-us {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fff;
+}
