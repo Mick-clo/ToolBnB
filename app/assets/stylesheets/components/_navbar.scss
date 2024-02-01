@@ -10,6 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+<<<<<<< HEAD
+.nav-bar-items{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.nav-item{
+  padding-right: 10px;
+  position: relative;
+  text-decoration: none;
+=======
 
 .nav-links a {
   background-color: 1px solid grey;
@@ -21,4 +34,5 @@
   background-color: black;
   border: 1px solid white;
   color:white;
+>>>>>>> master
 }
