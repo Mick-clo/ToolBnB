@@ -1,0 +1,57 @@
+.tool-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:#2196f3 1px solid;
+  min-height: 100%;
+  padding: 30px;
+
+  .tool-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding: 10px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 20px;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    a {
+      margin-right: 1rem;
+      padding: 0.5rem 1.5rem;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+
+      &.delete {
+        background-color: #f04134;
+      }
+
+      &.edit {
+        background-color: #2196f3;
+      }
+
+      &.book {
+        background-color: #4caf50;
+      }
+
+      &.back {
+        background-color: #9c27b0;
+      }
+    }
+  }
+}
