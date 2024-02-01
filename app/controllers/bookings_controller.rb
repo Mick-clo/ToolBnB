@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_tool, only: [:new, :create]
-  before_action :set_booking, only: [:show, :destroy]
+  before_action :set_tool, only: [:new, :create, :index]
+  before_action :set_booking, only: [:show, :destroy, :accept, :decline]
 
   def index
     @bookings = current_user.bookings.order(starting_date: :desc)
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.tool = @tool
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
+      redirect_to dashboard_path, notice: 'Booking was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,16 +38,26 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    if @booking.update(status: 'accepted')
-      redirect_to bookings_path, notice: 'Booking request accepted.'
+    @booking.update(status: 'accepted')
+    if @booking.status == 'accepted'
+      redirect_to dashboard_path, notice: 'Booking request accepted.'
     else
-      redirect_to bookings_path, alert: 'Unable to accept booking request.'
+      redirect_to dashboard_path, alert: 'Unable to accept booking request.'
+    end
+  end
+
+  def decline
+    @booking.update(status: 'declined')
+    if @booking.status == 'declined'
+      redirect_to dashboard_path, notice: 'Booking request declined.'
+    else
+      redirect_to dashboard_path, alert: 'Unable to decline booking request.'
     end
   end
 
   def destroy
     @booking.destroy
-    redirect_to bookings_url, notice: 'Booking was successfully deleted.'
+    redirect_to bookings_path, notice: 'Booking was successfully deleted.'
   end
 
   private

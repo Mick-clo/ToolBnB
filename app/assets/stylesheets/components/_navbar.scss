@@ -10,3 +10,15 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-links a {
+  background-color: 1px solid grey;
+  border-radius: 5px;
+  color: grey;
+}
+
+.nav-links a:hover {
+  background-color: black;
+  border: 1px solid white;
+  color:white;
+}
