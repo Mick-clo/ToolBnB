@@ -56,11 +56,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_111028) do
 
   create_table "tools", force: :cascade do |t|
     t.string "title"
-    t.integer "price"
+    t.float "price"
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["user_id"], name: "index_tools_on_user_id"
   end
 

@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_tool, only: [:new, :create]
   before_action :set_booking, only: [:show, :destroy]
+
   def index
     @bookings = current_user.bookings.order(starting_date: :desc)
   end
@@ -17,14 +18,10 @@ class BookingsController < ApplicationController
     @booking.tool = @tool
     @booking.user = current_user
     if @booking.save
-      redirect_to tool_path(@tool), notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
   end
 
   def edit
