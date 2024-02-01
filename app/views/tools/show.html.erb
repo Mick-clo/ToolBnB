@@ -3,10 +3,10 @@
 <p><strong>Description:</strong> <%= @tool.description %></p>
 <%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
 
-
-<%= link_to 'Delete', tool_path(@tool), method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_tool_path(@tool) %>
-
-<%= link_to 'Book this Tool', new_tool_booking_path(@tool) %>
-
-<%= link_to 'Back', tools_path %>
+  <div class="buttons-container">
+    <%= link_to 'Edit', edit_tool_path(@tool), class: "edit" %>
+    <%= link_to 'Book this Tool', new_tool_booking_path(@tool), class: "book" %>
+    <%= link_to 'Delete', tool_path(@tool), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %>
+    <%= link_to 'Back', tools_path, class: "back" %>
+  </div>
+</div>
