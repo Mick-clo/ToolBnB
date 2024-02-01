@@ -1,8 +1,7 @@
-<div class="tool-container">
-  <%= cl_image_tag @tool.photo.key, height: 350, width: 450, crop: :fill %>
-  <h1><%= @tool.title %></h1>
-  <p><strong>Price: </strong><%= number_to_currency(@tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
-  <p><strong>Description:</strong> <%= @tool.description %></p>
+<h1><%= @tool.title %></h1>
+<p><strong>Price: </strong><%= number_to_currency(@tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
+<p><strong>Description:</strong> <%= @tool.description %></p>
+<%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
 
   <div class="buttons-container">
     <%= link_to 'Edit', edit_tool_path(@tool), class: "edit" %>
