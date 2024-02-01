@@ -1,0 +1,12 @@
+
+<%= simple_form_for(@user, url: user_registration_path, html: { method: :put }, data: { action: "adding-button-for-profile-picture#updatePicture"}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+  <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
