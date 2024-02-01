@@ -15,11 +15,12 @@
   </head>
 
   <body>
+  <div class="page-container">
   <%= render "devise/shared/flashes" %>
-  <%= render "layouts/navbar" %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  <!-- <%= render "layouts/footer" %> -->
+  <div class="navbar-container"><%= render "layouts/navbar" %></div>
+  <div class="content-container"><%= yield %></div>
+ 
+  <br>
+  <div class="footer-container"><%= render "layouts/footer" %></div>
   </body>
 </html>

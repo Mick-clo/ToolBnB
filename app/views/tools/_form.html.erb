@@ -8,6 +8,7 @@
     wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
     %>
   </div>
+   <%= form.input :photo, as: :file %>
 
   <div class="form-actions">
       <%= form.button :submit, class: 'btn btn-primary' %>
