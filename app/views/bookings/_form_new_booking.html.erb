@@ -1,0 +1,16 @@
+<%= simple_form_for [@tool, @booking], html: { class: 'form' } do |form| %>
+  <div data-controller="datepicker">
+    <%= form.input :starting_date,
+      as: :string,
+      input_html: { data: { datepicker_target: "startingDate" } } %>
+
+    <%= form.input :ending_date,
+        as: :string,
+        input_html: { data: { datepicker_target: "endingDate" } } %>
+  </div>
+
+
+  <div id="btn" class="form-group" style="text-align: center;">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>
