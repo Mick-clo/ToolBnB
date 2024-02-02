@@ -1,17 +1,63 @@
 <div class="bg_new">
-  <main class="container mt-5" style="margin-top: 16px;">
-    <div class="d-flex justify-content-center mb-4">
-      <h1>Welcome <%= @user.first_name %>!</h1>
-    </div>
-  <div data-controller="adding-button-for-profile-picture">
-  <button data-action="click->adding-button-for-profile-picture#openModal" class="btn btn-outline-dark" style="transition: background-color 0.3s, border-color 0.3s;">Edit picture</button>
-  <div data-adding-button-for-profile-picture-target="modal" id="change_avatar" class="btn d-none", style="background-color: black; color: white;> <%= render "form_picture" %></div>
+<main class="container mt-5" style="margin-top: 16px;">
+  <div class="d-flex justify-content-center mb-4">
+    <h1>Welcome <%= @user.first_name %>!</h1>
   </div>
-  <br>
-  <h3>Booked tools:</h3>
-  <tbody class="border-bottom-1">
-    <% @bookings.each do |booking| %>
-      <div class="card" style="width: 15rem; height: auto;">
+<div data-controller="adding-button-for-profile-picture">
+
+<button data-action="click->adding-button-for-profile-picture#openModal" class="btn btn-outline-dark" style="transition: background-color 0.3s, border-color 0.3s;">Edit picture</button>
+
+<div data-adding-button-for-profile-picture-target="modal" id="change_avatar" class="btn btn-success d-none"> <%= render "form_picture" %></div>
+</div>
+<br>
+
+
+<h3>Booked tools:</h3>
+<tbody class="border-bottom-1">
+  <% @bookings.each do |booking| %>
+    <div class="card" style="width: 15rem; height: auto;">
+
+
+
+
+
+<h3>Here are your booked tools:</h3>
+<tbody class="border-bottom-1">
+<div class="d-flex flex-wrap">
+  <% @bookings.each do |booking| %>
+<div class="card-product card-height">
+      <div class="card-product-infos">
+      <%= cl_image_tag booking.tool.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="marks">
+      <% if (booking.status == 'accepted') %>
+        <i class="fa-solid fa-circle-check"></i>
+      <% elsif (booking.status == 'pending') %>
+        <i class="fa-solid fa-circle-question"></i>
+      <% else (booking.status == 'declined') %>
+        <i class="fa-solid fa-circle-xmark"></i>
+      <% end %>
+
+      </div>
+        <h2> <%=booking.tool.title %> </h2> <p> by <%= booking.tool.user.first_name %>
+<ul class="list-group list-group-flush">
+        <li class="list-group-item">Address: <%= booking.tool.address %></li>
+        <li class="list-group-item">From: <%= booking.starting_date.strftime("%d/%m/%Y") %></li>
+        <li class="list-group-item">To: <%= booking.ending_date.strftime("%d/%m/%Y") %></li>
+      </ul>
+      <div class="position-nav">
+        <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to 'Delete', booking_path(booking), class: "btn btn-outline-danger btn-sm", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+  <% end %>
+  </div>
+</tbody>
 
 
 
