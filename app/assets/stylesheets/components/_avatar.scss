@@ -22,8 +22,6 @@ main {
   position:relative;
 }
 #change_avatar {
-  position: absolute;
-  right: 10px;
-  top: 85px;
+  z-index: 10;
   color:white;
 }
