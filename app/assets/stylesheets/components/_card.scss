@@ -1,6 +1,5 @@
 .card-product {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   width: 300px;
   height: 425px;
   border: 1px solid #ddd;
@@ -40,13 +39,16 @@
 
 .card-product-infos a {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 8px;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
+  position: absolute;
+  bottom: 8px;
+  left: 7px;
 }
 
 .card-product-infos a:hover {
@@ -62,3 +64,10 @@
   right: 10px;
   top: 10px;
 }
+.position-nav a{
+  position: inherit;
+
+}
+ .card-height{
+  height: inherit;
+ }

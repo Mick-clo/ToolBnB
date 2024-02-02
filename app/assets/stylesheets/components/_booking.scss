@@ -1,0 +1,22 @@
+.container-booking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+#btn-booking{
+  margin-top:40px
+}
+.form-container-booking {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.space-booking{
+  margin-top:16px
+}

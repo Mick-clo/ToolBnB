@@ -2,6 +2,7 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show]
 
   def index
+    @booking = Booking.new
     @tools = Tool.all
     @markers = @tools.geocoded.map do |tool|
       {

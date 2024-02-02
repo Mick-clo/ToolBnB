@@ -1,10 +1,11 @@
 <h1>Booking Details</h1>
 
 <p>Your booking ID:<%= @booking.id %></p>
+<%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
 <p>User: <%= @booking.user.first_name %></p>
 <p>Tool ID: <%= @booking.tool_id %></p>
-<p>Starting Date: <%= @booking.starting_date %></p>
-<p>Ending Date: <%= @booking.ending_date %></p>
+<p>From: <%= @booking.starting_date %></p>
+<p>To: <%= @booking.ending_date %></p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %>
 <%= link_to 'Back', bookings_path %>
