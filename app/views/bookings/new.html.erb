@@ -3,15 +3,33 @@
     <h1 style="text-align: center; ">Book it now</h1>
 
     <%= simple_form_for [@tool, @booking], html: { class: 'form' } do |form| %>
-      <div class="form-group space" style="text-align: left;">
-        <%= form.label :starting_date %>
-        <%= form.date_field :starting_date, class: 'form-control' %>
-      </div>
 
-      <div class="form-group space" style="text-align: left;">
-        <%= form.label :ending_date %>
-        <%= form.date_field :ending_date, class: 'form-control' %>
-      </div>
+
+<div class="flatpickr">
+    <input type="text" placeholder="Select Date.." data-input> <!-- input is mandatory -->
+
+    <a class="input-button" title="toggle" data-toggle>
+        <i class="icon-calendar"></i>
+    </a>
+
+    <a class="input-button" title="clear" data-clear>
+        <i class="icon-close"></i>
+    </a>
+</div>
+
+
+        <%= form.input :starting_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker", wrap: true, altInput: true, altFormat: "F j, Y", enableTime: true, dateFormat: "Y-m-d H:i", minDate: "today" } } %>
+
+
+
+
+        <%= form.input :ending_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker", wrap: true, altInput: true, altFormat: "F j, Y", enableTime: true, dateFormat: "Y-m-d H:i", minDate: "today" } } %>
+
+
 
       <div id="btn" class="form-group" style="text-align: center;">
         <%= form.submit 'Submit', class: 'btn btn-primary' %>
@@ -19,4 +37,3 @@
     <% end %>
   </div>
 </div>
-
