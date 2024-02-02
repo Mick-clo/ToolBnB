@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-    @tools = Tool.all.sample(5)
+    @tools = Tool.all.sample(4)
   end
 
   def dashboard

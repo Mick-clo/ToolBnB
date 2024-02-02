@@ -5,14 +5,18 @@
   </div>
   <%= link_to "Browse tools", tools_path, class:"btn41-43 btn-43"%>
 </div>
-<div class="container mt-5">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Tool Name</h5>
-      <p class="card-text">This is a description of the tool.</p>
-      <a href="#" class="btn btn-primary">Go to Tool Page</a>
+<div class="container-random">
+    <div class="tools-container">
+      <% @tools.each do |tool| %>
+        <div class="tool">
+          <%= cl_image_tag tool.photo.key, height: 300, width: 400, crop: :fill %>
+          <h2><%= tool.title %></h2>
+          <p><%= tool.price %></p>
+          <p><%= tool.description %></p>
+          <%= link_to 'Go to Tool Page', tool_path(tool), class: 'button-primary' %>
+        </div>
+        <% end %>
     </div>
-  </div>
 </div>
 <div id="about-us" class="container">
 

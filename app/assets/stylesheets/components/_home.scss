@@ -20,3 +20,31 @@
   text-align: center;
   background-color: #fff;
 }
+
+.container-random{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 30px;
+}
+
+.tools-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px;
+  padding: 10px;
+  .tool {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  .h2 {
+    margin-left: 50px;
+  }
+}
