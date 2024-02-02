@@ -11,7 +11,8 @@
         <div class="tool">
           <%= cl_image_tag tool.photo.key, height: 300, width: 400, crop: :fill %>
           <h2><%= tool.title %></h2>
-          <p><%= tool.price %></p>
+          <p> <%= number_to_currency(tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
+         
           <p><%= tool.description %></p>
           <%= link_to 'Go to Tool Page', tool_path(tool), class: 'button-primary' %>
         </div>
