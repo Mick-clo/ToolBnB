@@ -1,11 +1,15 @@
-<div main>
-<div class="d-flex justify-content-center"><h1>Welcome <%= @user.first_name %>!</h1></div>
+<main class="container mt-5" style="margin-top: 16px;">
+  <div class="d-flex justify-content-center mb-4">
+    <h1>Welcome <%= @user.first_name %>!</h1>
+  </div>
 <div data-controller="adding-button-for-profile-picture">
-<button data-action="click->adding-button-for-profile-picture#openModal" class="btn btn-outline-dark">Add a profile picture!</button>
+
+<button data-action="click->adding-button-for-profile-picture#openModal" class="btn btn-outline-dark" style="transition: background-color 0.3s, border-color 0.3s;">Edit picture</button>
+
 <div data-adding-button-for-profile-picture-target="modal" id="change_avatar" class="btn btn-success d-none"> <%= render "form_picture" %></div>
 </div>
 <br>
-<h3>Here are your booked tools:</h3>
+<h3>Booked tools:</h3>
 <tbody class="border-bottom-1">
   <% @bookings.each do |booking| %>
     <div class="card" style="width: 15rem; height: auto;">
@@ -42,7 +46,7 @@
 
 
 <br>
-<h3>Here are the tools you posted:</h3>
+<h3>Tools posted:</h3>
 
 <tbody>
   <% @tools.each do |tool| %>
@@ -51,7 +55,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= tool.title %></h5>
-            <p class="card-text">Your booking requests:</p>
+            <p class="card-text">Booking requests:</p>
             <% tool.bookings.where(status: 'pending').each do |booking| %>
             <p> <%= booking.user.first_name %> would like to use it</p>
             <%= link_to 'Accept', accept_booking_path(booking), class: "btn btn-outline-primary btn-sm", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
