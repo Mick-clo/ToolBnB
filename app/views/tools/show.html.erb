@@ -1,12 +1,38 @@
-<h1><%= @tool.title %></h1>
-<p><strong>Price: </strong><%= number_to_currency(@tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
-<p><strong>Description:</strong> <%= @tool.description %></p>
-<%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
+<%= link_to 'Back', tools_path, class: "back" %>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="tool-container">
+    <%= cl_image_tag @tool.photo.key, height: 300, width: 400, crop: :fill %>
+    <h1><%= @tool.title %></h1>
+    <p><strong>Price: </strong><%= number_to_currency(@tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
+    <p><strong>Description:</strong> <%= @tool.description %></p>
 
-  <div class="buttons-container">
-    <%= link_to 'Edit', edit_tool_path(@tool), class: "edit" %>
-    <%= link_to 'Book this Tool', new_tool_booking_path(@tool), class: "book" %>
-    <%= link_to 'Delete', tool_path(@tool), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete" %>
-    <%= link_to 'Back', tools_path, class: "back" %>
+      <div class="buttons-container">
+
+         <%= link_to 'Book this Tool', new_tool_booking_path(@tool), class: "book" %>
+
+
+          <%= link_to edit_tool_path(@tool) do %>
+            <i><script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <lord-icon
+            src="https://cdn.lordicon.com/ylvuooxd.json"
+            trigger="hover"
+            state="hover-line"
+            colors="primary:#ebe6ef,secondary:#e4e4e4,tertiary:#66a1ee,quaternary:#3a3347"
+            style="width:50px;height:50px;margin: right 8px;">
+          </lord-icon></i>
+            <% end %>
+
+          <%= link_to tool_path(@tool),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i><script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <lord-icon
+            src="https://cdn.lordicon.com/hjbrplwk.json"
+            trigger="morph"
+            state="morph-trash-in"
+            colors="primary:#e4e4e4,secondary:#66a1ee,tertiary:#ebe6ef,quaternary:#3a3347"
+            style="width:50px;height:50px">
+          </lord-icon></i>
+          <% end %>
+
+      </div>
   </div>
 </div>
