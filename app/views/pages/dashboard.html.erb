@@ -3,7 +3,9 @@
     <h1>Welcome <%= @user.first_name %>!</h1>
   </div>
 <div data-controller="adding-button-for-profile-picture">
+
 <button data-action="click->adding-button-for-profile-picture#openModal" class="btn btn-outline-dark" style="transition: background-color 0.3s, border-color 0.3s;">Edit picture</button>
+
 <div data-adding-button-for-profile-picture-target="modal" id="change_avatar" class="btn btn-success d-none"> <%= render "form_picture" %></div>
 </div>
 <br>
