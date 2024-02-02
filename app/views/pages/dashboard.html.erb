@@ -5,16 +5,17 @@
 <div data-adding-button-for-profile-picture-target="modal" id="change_avatar" class="btn btn-success d-none"> <%= render "form_picture" %></div>
 </div>
 <br>
+
+
+
 <h3>Here are your booked tools:</h3>
 <tbody class="border-bottom-1">
+<div class="d-flex flex-wrap">
   <% @bookings.each do |booking| %>
-    <div class="card" style="width: 15rem; height: auto;">
-
-
-
-      <%= cl_image_tag booking.tool.photo.key,  crop: :fill %>
-
-      <div class="marks">
+<div class="card-product card-height">
+      <div class="card-product-infos">
+      <%= cl_image_tag booking.tool.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="marks">
       <% if (booking.status == 'accepted') %>
         <i class="fa-solid fa-circle-check"></i>
       <% elsif (booking.status == 'pending') %>
@@ -22,22 +23,27 @@
       <% else (booking.status == 'declined') %>
         <i class="fa-solid fa-circle-xmark"></i>
       <% end %>
+
       </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= booking.tool.title %></h5>
-        <p class="card-text">By: <%= booking.tool.user.first_name %> <%= booking.tool.user.last_name %></p>
-      </div>
-      <ul class="list-group list-group-flush">
+        <h2> <%=booking.tool.title %> </h2> <p> by <%= booking.tool.user.first_name %>
+<ul class="list-group list-group-flush">
         <li class="list-group-item">Address: <%= booking.tool.address %></li>
         <li class="list-group-item">From: <%= booking.starting_date.strftime("%d/%m/%Y") %></li>
         <li class="list-group-item">To: <%= booking.ending_date.strftime("%d/%m/%Y") %></li>
       </ul>
-      <div class="card-body">
+      <div class="position-nav">
         <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-outline-primary btn-sm" %>
         <%= link_to 'Delete', booking_path(booking), class: "btn btn-outline-danger btn-sm", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
+      </div>
     </div>
+
+
+
+
+
   <% end %>
+  </div>
 </tbody>
 
 
@@ -62,5 +68,6 @@
       </div>
     </div>
   <% end %>
+
 </tbody>
 </main>
