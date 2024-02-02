@@ -7,6 +7,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -18,3 +19,12 @@
 @import "components/status";
 @import "components/booking";
 @import "components/tools";
+
+// Fonts
+body{
+  font: "Space Mono";
+}
+
+h{
+  font: "Space Grotesk"
+}
