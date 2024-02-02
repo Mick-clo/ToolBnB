@@ -1,3 +1,4 @@
+<div class="bg_new">
 <main class="container mt-5" style="margin-top: 16px;">
   <div class="d-flex justify-content-center mb-4">
     <h1>Welcome <%= @user.first_name %>!</h1>
@@ -53,27 +54,27 @@
 </tbody>
 
 
-<br>
-<h3>Tools posted:</h3>
+  <br>
+  <h3>Tools posted:</h3>
 
-<tbody>
-  <% @tools.each do |tool| %>
-    <div class="row">
-      <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= tool.title %></h5>
-            <p class="card-text">Booking requests:</p>
-            <% tool.bookings.where(status: 'pending').each do |booking| %>
-            <p> <%= booking.user.first_name %> would like to use it</p>
-            <%= link_to 'Accept', accept_booking_path(booking), class: "btn btn-outline-primary btn-sm", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
-            <%= link_to 'Decline', decline_booking_path(booking), class: "btn btn-outline-danger btn-sm", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
-          <% end %>
+  <tbody>
+    <% @tools.each do |tool| %>
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= tool.title %></h5>
+              <p class="card-text">Booking requests:</p>
+              <% tool.bookings.where(status: 'pending').each do |booking| %>
+              <p> <%= booking.user.first_name %> would like to use it</p>
+              <%= link_to 'Accept', accept_booking_path(booking), class: "btn btn-outline-primary btn-sm", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
+              <%= link_to 'Decline', decline_booking_path(booking), class: "btn btn-outline-danger btn-sm", data: {turbo_method: :post, turbo_confirm: "Are you sure?"} %>
+            <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-
-</tbody>
-</main>
+    <% end %>
+  </tbody>
+  </main>
+</div>
