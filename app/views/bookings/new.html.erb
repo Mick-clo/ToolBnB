@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container-booking">
   <div class="form-container">
     <h1 style="text-align: center; ">Book it now</h1>
 
     <%= simple_form_for [@tool, @booking], html: { class: 'form' } do |form| %>
+<<<<<<< HEAD
 
 
 <div class="flatpickr">
@@ -30,8 +31,19 @@
             input_html: { data: { controller: "datepicker", wrap: true, altInput: true, altFormat: "F j, Y", enableTime: true, dateFormat: "Y-m-d H:i", minDate: "today" } } %>
 
 
+=======
+      <div class="form-group-booking space-booking" style="text-align: left;">
+        <%= form.label :starting_date %>
+        <%= form.date_field :starting_date, class: 'form-control' %>
+      </div>
 
-      <div id="btn" class="form-group" style="text-align: center;">
+      <div class="form-group-booking space-booking" style="text-align: left;">
+        <%= form.label :ending_date %>
+        <%= form.date_field :ending_date, class: 'form-control' %>
+      </div>
+>>>>>>> 6faa5e1620cddef3237c61199860da92d39231be
+
+      <div id="btn-booking" class="form-group-booking" style="text-align: center;">
         <%= form.submit 'Submit', class: 'btn btn-primary' %>
       </div>
     <% end %>
