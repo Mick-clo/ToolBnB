@@ -1,22 +1,21 @@
-<div class="container">
+<div class="container-booking">
   <div class="form-container">
     <h1 style="text-align: center; ">Book it now</h1>
 
     <%= simple_form_for [@tool, @booking], html: { class: 'form' } do |form| %>
-      <div class="form-group space" style="text-align: left;">
+      <div class="form-group-booking space-booking" style="text-align: left;">
         <%= form.label :starting_date %>
         <%= form.date_field :starting_date, class: 'form-control' %>
       </div>
 
-      <div class="form-group space" style="text-align: left;">
+      <div class="form-group-booking space-booking" style="text-align: left;">
         <%= form.label :ending_date %>
         <%= form.date_field :ending_date, class: 'form-control' %>
       </div>
 
-      <div id="btn" class="form-group" style="text-align: center;">
+      <div id="btn-booking" class="form-group-booking" style="text-align: center;">
         <%= form.submit 'Submit', class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>
 </div>
-
