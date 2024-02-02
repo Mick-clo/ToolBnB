@@ -61,8 +61,8 @@
     <% @tools.each do |tool| %>
       <div class="row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
+          <div class="card w-15">
+            <div class="card-body ">
               <h5 class="card-title"><%= tool.title %></h5>
               <p class="card-text">Booking requests:</p>
               <% tool.bookings.where(status: 'pending').each do |booking| %>
