@@ -8,14 +8,16 @@
 
 <br>
 <br>
-<% @tools.each do |tool| %>
-  <div class="card-product">
-    <div class="card-product-infos">
-    <%= cl_image_tag tool.photo.key, height: 300, width: 400, crop: :fill %>
-      <h2> <%= tool.title %> </h2> <p> by <%= tool.user.first_name %>
-      <p> <%= number_to_currency(tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
-      <p> <%= tool.description %> </p>
-      <%= link_to "Book me!", new_tool_booking_path(tool) %>
+<div class="d-flex flex-wrap">
+  <% @tools.each do |tool| %>
+    <div class="card-product">
+      <div class="card-product-infos">
+      <%= cl_image_tag tool.photo.key, height: 300, width: 400, crop: :fill %>
+        <h2> <%= tool.title %> </h2> <p> by <%= tool.user.first_name %>
+        <p> <%= number_to_currency(tool.price, unit: '€', format: "%n%u", precision: 2) %></p>
+        <p> <%= tool.description %> </p>
+        <%= link_to "Book me!", new_tool_booking_path(tool) %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
